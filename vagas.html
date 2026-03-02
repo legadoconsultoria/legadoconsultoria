@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vagas Abertas | Legado Consultoria</title>
+    <style>
+        /* Base (Mesma identidade visual do index) */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { color: #333; line-height: 1.6; background-color: #f9fbfd; }
+        a { text-decoration: none; color: inherit; }
+        
+        :root { 
+            --primary: #0A2540; 
+            --secondary: #118AB2; 
+            --light: #ffffff; 
+            --gray: #eef2f5;
+        }
+
+        /* Navegação */
+        header { background-color: var(--primary); color: var(--light); padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .logo { display: flex; align-items: center; gap: 0.8rem; }
+        .logo img { height: 50px; }
+        nav ul { list-style: none; display: flex; gap: 1.8rem; align-items: center; }
+        nav a { font-weight: 500; font-size: 0.95rem; }
+        nav a:hover { color: var(--secondary); transition: 0.3s; }
+        .btn-voltar { background-color: transparent; border: 1.5px solid var(--light); color: var(--light); padding: 0.5rem 1.2rem; border-radius: 4px; font-weight: 600; text-transform: uppercase; font-size: 0.85rem; transition: 0.3s; }
+        .btn-voltar:hover { background-color: var(--light); color: var(--primary); }
+
+        /* Cabeçalho das Vagas */
+        .page-header { background: linear-gradient(135deg, var(--primary) 0%, #1a3a5f 100%); color: var(--light); text-align: center; padding: 4rem 5%; }
+        .page-header h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+        
+        /* Grid de Vagas */
+        .vagas-container { max-width: 900px; margin: 4rem auto; padding: 0 5%; display: flex; flex-direction: column; gap: 2rem; min-height: 40vh; }
+        
+        .vaga-card { background: var(--light); padding: 2rem; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-left: 5px solid var(--secondary); }
+        .vaga-card h2 { color: var(--primary); font-size: 1.5rem; margin-bottom: 0.3rem; }
+        .vaga-local { color: var(--secondary); font-weight: bold; font-size: 0.9rem; margin-bottom: 1.5rem; display: block; text-transform: uppercase; letter-spacing: 1px; }
+        .vaga-card p { margin-bottom: 1rem; color: #555; }
+        .vaga-req { font-size: 0.9rem; background-color: var(--gray); padding: 1rem; border-radius: 4px; margin-bottom: 1.5rem; }
+        .btn-aplicar { display: inline-block; background-color: var(--secondary); color: var(--light); padding: 0.8rem 2rem; border-radius: 4px; font-weight: bold; text-transform: uppercase; font-size: 0.85rem; transition: 0.3s; }
+        .btn-aplicar:hover { background-color: #0d6efd; box-shadow: 0 4px 15px rgba(17, 138, 178, 0.4); color: white;}
+
+        .vazio { text-align: center; color: #666; font-size: 1.1rem; padding: 3rem; background: #fff; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+
+        /* Rodapé */
+        footer { background-color: var(--primary); color: var(--light); text-align: center; padding: 2rem 5%; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="https://lh3.googleusercontent.com/pw/AP1GczODWJ5b1D7K5p5_28M5_L6-p58N6O2_V4T4q8t8A_44z-5O_5O_5O_5O_5O_5O_5O_5O_5O_5O_5O=w1920-h1080-no" alt="Legado Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="btn-voltar">← Voltar ao Início</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="page-header">
+        <h1>Oportunidades em Aberto</h1>
+        <p>Encontre a sua próxima cadeira de liderança ou especialidade técnica.</p>
+    </div>
+
+    <main class="vagas-container" id="lista-vagas">
+        </main>
+
+    <footer>
+        <p>© 2026 Legado Consultoria e Gestão de Talentos.</p>
+    </footer>
+
+    <script src="dados_vagas.js"></script>
+    <script>
+        const container = document.getElementById('lista-vagas');
+
+        // Verifica se existem vagas cadastradas
+        if (vagasAbertas.length === 0) {
+            container.innerHTML = `
+                <div class="vazio">
+                    <h3>Nenhuma vaga em aberto no momento.</h3>
+                    <p style="margin-top: 10px;">Estamos sempre prospectando novos clientes. Siga nosso LinkedIn para ser avisado sobre novas oportunidades industriais.</p>
+                </div>`;
+        } else {
+            // Se tiver, desenha os cartões de cada vaga
+            vagasAbertas.forEach(vaga => {
+                const card = document.createElement('div');
+                card.className = 'vaga-card';
+                card.innerHTML = `
+                    <h2>${vaga.titulo}</h2>
+                    <span class="vaga-local">📍 ${vaga.cidade}</span>
+                    <p><strong>Descrição:</strong> ${vaga.descricao}</p>
+                    <div class="vaga-req"><strong>Requisitos:</strong> ${vaga.requisitos}</div>
+                    <a href="${vaga.link}" target="_blank" class="btn-aplicar">Tenho Interesse</a>
+                `;
+                container.appendChild(card);
+            });
+        }
+    </script>
+</body>
+</html>
