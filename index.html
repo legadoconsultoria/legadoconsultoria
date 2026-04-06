@@ -10,6 +10,140 @@
         a { text-decoration: none; color: inherit; }
         :root { --primary: #0A2540; --secondary: #FF8C00; --dark: #1a3a5f; --light: #ffffff; }
 
+        /* Ajuste no Header para acomodar a logo maior */
+        header { 
+            background-color: var(--primary); 
+            color: var(--light); 
+            padding: 0.5rem 5%; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            position: sticky; 
+            top: 0; 
+            z-index: 100; 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1); 
+        }
+
+        /* Logo ampliada para 90px de altura */
+        .logo img { 
+            height: 90px; 
+            display: block; 
+            width: auto;
+        } 
+
+        nav ul { list-style: none; display: flex; gap: 1.8rem; align-items: center; }
+        nav a { font-weight: 500; font-size: 0.95rem; }
+        nav a:hover { color: var(--secondary); transition: 0.3s; }
+
+        .btn-demo { border: 1.5px solid var(--secondary); color: var(--secondary); padding: 0.5rem 1.2rem; border-radius: 4px; font-weight: 600; text-transform: uppercase; font-size: 0.85rem; }
+        .btn-demo:hover { background-color: var(--secondary); color: var(--light); }
+
+        .hero { background: linear-gradient(135deg, var(--primary) 0%, var(--dark) 100%); color: var(--light); text-align: center; padding: 8rem 5%; }
+        .hero h1 { font-size: 3.2rem; margin-bottom: 1.5rem; line-height: 1.2; }
+        .hero p { font-size: 1.25rem; margin-bottom: 2.5rem; max-width: 800px; margin: 0 auto 2.5rem; opacity: 0.9; }
+        .btn-main { display: inline-block; background-color: var(--secondary); color: var(--light); padding: 1.2rem 3rem; border-radius: 4px; font-weight: bold; text-transform: uppercase; font-size: 1rem; transition: 0.3s; }
+        .btn-main:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(255,140,0,0.4); }
+
+        section { padding: 6rem 5%; }
+        .section-title { text-align: center; font-size: 2.5rem; color: var(--primary); margin-bottom: 1rem; }
+        .section-subtitle { text-align: center; color: #666; margin-bottom: 4rem; font-size: 1.1rem; }
+        
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2.5rem; max-width: 1200px; margin: 0 auto; }
+        .card { background: var(--light); padding: 3rem 2rem; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center; transition: 0.3s; border-bottom: 5px solid transparent; }
+        .card:hover { transform: translateY(-10px); border-bottom: 5px solid var(--secondary); }
+        .card h3 { color: var(--primary); margin-bottom: 1rem; font-size: 1.5rem; }
+        .card p { color: #555; font-size: 1rem; }
+
+        .benefits { background-color: #f0f4f8; }
+        .contact { background-color: var(--primary); color: var(--light); text-align: center; }
+        .contact .section-title { color: var(--light); }
+        .btn-whatsapp { background-color: #25D366; color: white; padding: 1.2rem 3rem; border-radius: 4px; font-weight: bold; display: inline-block; margin-top: 2rem; font-size: 1.1rem; }
+        
+        footer { background-color: #051626; color: var(--light); text-align: center; padding: 3rem 5%; font-size: 0.95rem; border-top: 1px solid rgba(255,255,255,0.1); }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="Emadrix Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#ganhos">Vantagens</a></li>
+                <li><a href="#recursos">Recursos</a></li>
+                <li><a href="#contato" class="btn-demo">Agendar Demo</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="inicio" class="hero">
+        <h1>Sua Fábrica Não Para.<br>Gestão de Manutenção de Alto Nível.</h1>
+        <p>Transforme seu PCM com o software Emadrix. Controle ordens de serviço, indicadores e preventivas em uma plataforma robusta desenhada para a realidade industrial.</p>
+        <a href="#contato" class="btn-main">Começar Agora</a>
+    </section>
+
+    <section id="ganhos" class="benefits">
+        <h2 class="section-title">O que sua empresa ganha?</h2>
+        <p class="section-subtitle">A Emadrix entrega os resultados que o financeiro e a operação precisam.</p>
+        <div class="grid">
+            <div class="card">
+                <h3>Redução de Downtime</h3>
+                <p>Antecipe falhas antes que elas parem sua linha de produção. Aumente a disponibilidade de máquinas críticas.</p>
+            </div>
+            <div class="card">
+                <h3>Eliminação do Papel</h3>
+                <p>Ordens de serviço 100% digitais. Acabe com os formulários rasurados e a perda de histórico no chão de fábrica.</p>
+            </div>
+            <div class="card">
+                <h3>Indicadores em Tempo Real</h3>
+                <p>Acompanhe MTBF, MTTR e custos de manutenção sem precisar de planilhas complexas ou processamento manual.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="recursos">
+        <h2 class="section-title">Melhorias Diretas no seu App</h2>
+        <p class="section-subtitle">Funcionalidades pensadas por quem entende de manutenção.</p>
+        <div class="grid">
+            <div class="card">
+                <h3>Gestão de Materiais</h3>
+                <p>Controle o histórico de troca de peças da sua máquina e obtenha dados específicos de estoque mínimo e máximo.</p>
+            </div>
+            <div class="card">
+                <h3>Cronograma de Preventivas</h3>
+                <p>Automatize o plano de lubrificação e inspeções periódicas, garantindo que nenhum ativo seja esquecido.</p>
+            </div>
+            <div class="card">
+                <h3>Mobilidade Total</h3>
+                <p>Seus mecânicos acessam e baixam ordens de serviço via tablet ou smartphone de qualquer lugar da planta.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contato" class="contact">
+        <h2 class="section-title">Pronto para o Próximo Nível?</h2>
+        <p>Solicite um diagnóstico gratuito da sua gestão atual e veja como a Emadrix pode ajudar.</p>
+        <a href="https://wa.me/5575998952628?text=Olá, gostaria de uma demonstração do software Emadrix." target="_blank" class="btn-whatsapp">Conversar via WhatsApp</a>
+        <p style="margin-top: 2.5rem; opacity: 0.8;">contato@emadrix.com.br</p>
+    </section>
+
+    <footer>
+        <p>© 2026 Emadrix | Inteligência em Manutenção Industrial. São Lourenço do Oeste, SC.</p>
+    </footer>
+</body>
+</html><!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emadrix | Inteligência em Gestão de Manutenção (PCM)</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        body { color: #333; line-height: 1.6; background-color: #f9fbfd; scroll-behavior: smooth; }
+        a { text-decoration: none; color: inherit; }
+        :root { --primary: #0A2540; --secondary: #FF8C00; --dark: #1a3a5f; --light: #ffffff; }
+
         header { background-color: var(--primary); color: var(--light); padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
         .logo img { height: 50px; display: block; } 
         nav ul { list-style: none; display: flex; gap: 1.8rem; align-items: center; }
